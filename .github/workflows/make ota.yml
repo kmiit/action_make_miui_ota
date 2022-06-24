@@ -28,9 +28,8 @@ jobs:
         cd payload-dumper-go
         ls
         go build .
-        ls
-        #chmod 755 payload-dumper
-        ./payload-dumper 
+        chmod 755 payload-dumper-go
+        ./payload-dumper-go 
     - name: Repopick Patches
       run: |
         
