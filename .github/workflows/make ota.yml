@@ -22,8 +22,6 @@ jobs:
       run: |
        # unzip new
        # unzip old
-
-
     - name: Extract payload.bin
       run: |
         git clone  https://github.com/ssut/payload-dumper-go
@@ -31,7 +29,7 @@ jobs:
         ls
         go build .
         ls
-     #   chmod 755 payload-dumper
+        #chmod 755 payload-dumper
         ./payload-dumper 
     - name: Repopick Patches
       run: |
