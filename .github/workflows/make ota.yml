@@ -23,6 +23,7 @@ jobs:
        # unzip new
        # unzip old
 
+
     - name: Extract payload.bin
       run: |
         git clone  https://github.com/ssut/payload-dumper-go
