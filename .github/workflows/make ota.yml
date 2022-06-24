@@ -11,17 +11,17 @@ jobs:
 
     - name: get new rom
       run: |
-        wget newurl -o ~/new.zip
+      #  wget newurl -o ~/new.zip
       
 
     - name: get old rom
       run: |
-        wget oldurl -o ~/old.zip
+       # wget oldurl -o ~/old.zip
 
     - name: Extract rom
       run: |
-        unzip new
-        unzip old
+       # unzip new
+       # unzip old
 
     - name: Extract payload.bin
       run: |
