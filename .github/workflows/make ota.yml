@@ -28,7 +28,7 @@ jobs:
         git clone  https://github.com/ssut/payload-dumper-go
         cd payload-dumper-go
         ls
-        go .
+        go build .
         chmod 755 payload-dumper
         ./payload-dumper 
     - name: Repopick Patches
