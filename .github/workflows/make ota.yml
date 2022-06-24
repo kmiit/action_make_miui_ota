@@ -27,7 +27,7 @@ jobs:
       run: |
         wget https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz -o ~/payload-dumper.tar.gz
         tar -zxvf ~/payload-dumper.tar.gz
-        chmod 755 payload-dumper CT
+        chmod 755 payload-dumper
         ~/payload-dumper 
     - name: Repopick Patches
       run: |
