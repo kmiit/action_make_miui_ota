@@ -8,26 +8,6 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - name: Remove Useless Package
-      run: |
-        docker rmi `docker images -q`
-        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
-        sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-        sudo apt -y autoremove --purge
-        sudo apt -y autoclean
-        sudo apt clean
-    - name: Maximize Build Space
-      uses: easimon/maximize-build-space@master
-      with:
-        root-reserve-mb: 1024
-        swap-size-mb: 10240
-        remove-dotnet: 'true'
-        temp-reserve-mb: 1024
-        remove-android: 'true'
-        remove-haskell: 'true'
-
-    - name: Check Out
-      uses: actions/checkout@main
 
     - name: get new rom
       run: |
