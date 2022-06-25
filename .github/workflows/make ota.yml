@@ -28,7 +28,7 @@ jobs:
         ls ~/
     - name: Extract rom
       run: |
-      mkdir ~/new ~/old
+        mkdir ~/new ~/old
         unzip ~/new.zip 
         unzip ~/old.zip 
         ls
