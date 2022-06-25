@@ -12,7 +12,7 @@ on:
         required: true
         default: ''
 jobs:
-  build:
+  make:
     runs-on: ubuntu-18.04
 
     steps:
@@ -25,13 +25,11 @@ jobs:
     - name: get old rom
       run: |
         wget ${{github.event.inputs.oldurl}} -O ~/old.zip
-        ls ~/
     - name: Extract rom
       run: |
         mkdir ~/new ~/old
-        unzip ~/new.zip 
-        unzip ~/old.zip 
-        ls
+        unzip ~/new.zip -d ~/new
+        unzip ~/old.zip -d ~/old
     - name: Extract payload.bin
       run: |
         wget https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz 
