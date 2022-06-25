@@ -1,5 +1,4 @@
-name: Make ota
-
+name: Make Ota
 on:
   workflow_dispatch:
     inputs:
@@ -43,7 +42,6 @@ jobs:
         mkdir ~/oout ~/nout ~/out 
         ./payload-dumper-go -o ~/nout ~/new/payload.bin
         ./payload-dumper-go -o ~/oout ~/old/payload.bin
-        
     - name: patch
       run: |
         sudo apt update && sudo apt install xdelta3
@@ -53,8 +51,7 @@ jobs:
         done
     - name: comp
       run: |
-       tar zcvf ~/out ~/xd.tgz
-       ls -a ~
+       tar zcvf ~/xd.tgz ~/out/*
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
