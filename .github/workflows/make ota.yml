@@ -14,14 +14,18 @@ on:
 jobs:
   make:
     runs-on: ubuntu-18.04
-
     steps:
-
+    - name: Remove Useless Package
+      run: |
+        docker rmi `docker images -q`
+        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
+        sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo apt -y autoremove --purge
+        sudo apt -y autoclean
+        sudo apt clean
     - name: get new rom
       run: |
         wget ${{github.event.inputs.newurl}} -O ~/new.zip
-      
-
     - name: get old rom
       run: |
         wget ${{github.event.inputs.oldurl}} -O ~/old.zip
@@ -30,6 +34,7 @@ jobs:
         mkdir ~/new ~/old
         unzip ~/new.zip -d ~/new
         unzip ~/old.zip -d ~/old
+        rm ~/new.zip ~/old.zip
     - name: Extract payload.bin
       run: |
         wget https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz 
@@ -41,11 +46,11 @@ jobs:
         
     - name: patch
       run: |
+        sudo apt update && sudo apt install xdelta3
         a=$(ls ~/nout)
         for i in $a; do
             xdelta3 -ves ~/oout/$i ~/nout/$i ~/out/$i.xd
         done
-
     - name: comp
       run: |
        tar zcvf ~/out ~/xd.tgz
