@@ -25,11 +25,12 @@ jobs:
     - name: get old rom
       run: |
         wget ${{github.event.inputs.oldurl}} -O ~/old.zip
-        ls
+        ls ~/
     - name: Extract rom
       run: |
-        unzip new.zip
-        unzip old.zip
+      mkdir ~/new ~/old
+        unzip ~/new.zip 
+        unzip ~/old.zip 
         ls
     - name: Extract payload.bin
       run: |
