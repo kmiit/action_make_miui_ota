@@ -18,5 +18,6 @@ jobs:
       run: |
        sudo apt install python3
        wget https://android.googlesource.com/platform/build/+archive/master/tools/releasetools.tar.gz
+       ls -a
        tar zxvf releasetools.tat.gz
        python3 ota_from_targret_files.py
