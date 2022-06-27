@@ -1,0 +1,22 @@
+name: Make Ota
+on:
+  workflow_dispatch:
+    inputs:
+      oldurl:
+        description: 'using system url'
+        required: false
+        default: ''
+      newurl:
+        description: 'new system url'
+        required: false
+        default: ''
+jobs:
+  make:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: compress
+      run: |
+       sudo apt install python3
+       wget https://android.googlesource.com/platform/build/+archive/master/tools/releasetools.tar.gz
+       tar zxvf releasetools.tat.gz
+       python3 ota_from_targret_files.py
