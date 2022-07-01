@@ -6,3 +6,5 @@ so that achieving the purpose of incremental <br />
 update. <br /><br />
 (still working in progress) <br /><br />
 test phone:Redmi k50 (已经寄了 already died
+<br />
+刷机有风险，玩机需谨慎，千万要备份
